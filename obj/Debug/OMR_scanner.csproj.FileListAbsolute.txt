@@ -1,0 +1,14 @@
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\bin\Debug\OMR_scanner.exe.config
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\bin\Debug\OMR_scanner.exe
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\bin\Debug\OMR_scanner.pdb
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.csprojAssemblyReference.cache
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.Form1.resources
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.Properties.Resources.resources
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.csproj.GenerateResource.cache
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.exe
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.pdb
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\bin\Debug\OMR_scanner.exe.manifest
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\bin\Debug\OMR_scanner.application
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.TrustInfo.xml
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.exe.manifest
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.application
