@@ -4,3 +4,4 @@ KOR:OMR 예제입니다.반드시 동봉된 OMR카드를 이용하셔야 합니�
 you can freely use!
 i'm korean and this program is written in korean,
 so you need to read the this.
+![OMR] (./image/tutorial_1.PNG)
