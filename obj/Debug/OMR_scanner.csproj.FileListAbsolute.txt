@@ -12,3 +12,6 @@ C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\bin\Debug\OMR_scanner.applic
 C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.TrustInfo.xml
 C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.exe.manifest
 C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.application
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\Interop.WIA.dll
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\obj\Debug\OMR_scanner.csproj.ResolveComReference.cache
+C:\Users\forev\source\repos\OMR_scanner\OMR_scanner\bin\Debug\Interop.WIA.dll
