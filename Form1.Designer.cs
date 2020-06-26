@@ -99,10 +99,10 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(789, 261);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(664, 40);
+            this.checkBox1.Size = new System.Drawing.Size(711, 40);
             this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "점수를 동일시하여 채점(ex:4문제면 1문제당 25점)\r\nevaluate with same score(ex.if there are 4 questi" +
-    "ons,25 points per question.)";
+            this.checkBox1.Text = "점수 비율을 동일시하여 채점(ex:4문제면 1문제당 25점)\r\nevaluate with same score ratio( ex.if there ar" +
+    "e 4 questions,25 points per question.)";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // answer

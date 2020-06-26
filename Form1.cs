@@ -28,6 +28,7 @@ namespace OMR_scanner
         public Point startpos1 = new Point(1323, 483);
         public Point Startpos2 = new Point(1663, 483);
         public int plusvalX = 40, plusvalY = 75;
+        public string filetmp;
         public Form1()
         {
             InitializeComponent();
@@ -206,47 +207,83 @@ namespace OMR_scanner
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Bitmap tmp = PictureBoxReset();
-            plusvalY = 75;
-            int width = tmp.Width;
-
-            int height = tmp.Height;
-            int x = 1331 ;
-            int n = 0;
-            Color colorData = new Color();
-
-      
-            if(num3<=20)
-
+            try
             {
+                Bitmap tmp = PictureBoxReset();
+                plusvalY = 75;
+                int width = tmp.Width;
 
-                bool ischecked = false ;
-                for (x = 1300 ; x <= 1510 ; x++)
+                int height = tmp.Height;
+                int x = 1331;
+                int n = 0;
+                Color colorData = new Color();
+
+
+                if (num3 <= 20)
 
                 {
-                    colorData = tmp.GetPixel(x, y);
-                    n = read_(ref colorData, x);
-                    if (n > 0)
+
+                    bool ischecked = false;
+                    for (x = 1300; x <= 1510; x++)
+
                     {
-                        ischecked = true;
+                        colorData = tmp.GetPixel(x, y);
+                        n = read_(ref colorData, x);
+                        if (n > 0)
+                        {
+                            ischecked = true;
+                        }
+
                     }
-                   
+                    if (ischecked)
+                    {
+
+                        n1 = 0;
+                        y += plusvalY;
+                        num3++;
+                        answerbox.Text += num3 + ":" + n + "\r\n";
+                        ans2[a] = n;
+                        a++;
+                    }
+                    if (num3.Equals(20))
+                    {
+                        y = 488;
+                        x = 1600;
+                        for (x = 1600; x <= 1860; x++)
+
+                        {
+                            colorData = tmp.GetPixel(x, y);
+                            n = read__(ref colorData, x);
+                            if (n > 0)
+                            {
+                                ischecked = true;
+                            }
+
+                        }
+                        if (ischecked)
+                        {
+
+                            n1 = 0;
+                            y += plusvalY;
+                            num3++;
+                            answerbox.Text += num3 + ":" + n + "\r\n";
+                            ans2[a] = n;
+                            a++;
+                        }
+
+                    }
+
                 }
-                if (ischecked)
+                else if (num3 > 40)
                 {
 
-                    n1 = 0;
-                    y+=plusvalY ;
-                    num3++;
-                    answerbox.Text += num3 + ":" + n + "\r\n";
-                    ans2[a] =n;
-                    a++;
+                    timer1.Enabled = false;
+
                 }
-                if (num3.Equals(20))
+                else
                 {
-                    y = 488;
-                    x = 1600 ;
-                    for (x = 1600 ; x <= 1860 ; x++)
+                    bool ischecked = false;
+                    for (x = 1600; x <= 1860; x++)
 
                     {
                         colorData = tmp.GetPixel(x, y);
@@ -261,7 +298,7 @@ namespace OMR_scanner
                     {
 
                         n1 = 0;
-                        y+=plusvalY ;
+                        y += plusvalY;
                         num3++;
                         answerbox.Text += num3 + ":" + n + "\r\n";
                         ans2[a] = n;
@@ -269,39 +306,10 @@ namespace OMR_scanner
                     }
 
                 }
-
             }
-            else if(num3>40)
+            catch (Exception ee)
             {
-
-                timer1.Enabled = false;
-
-            }
-            else
-            {
-                bool ischecked = false;
-                for (x = 1600 ; x <= 1860 ; x++)
-
-                {
-                    colorData = tmp.GetPixel(x, y);
-                    n = read__(ref colorData, x);
-                    if (n > 0)
-                    {
-                        ischecked = true;
-                    }
-
-                }
-                if (ischecked)
-                {
-
-                    n1 = 0;
-                    y+=plusvalY;
-                    num3++;
-                    answerbox.Text += num3 + ":" + n + "\r\n";
-                    ans2[a] = n;
-                    a++;
-                }
-
+                log_.Text = "예외가 발생하였습니다.(Exception occured.)\r\n" + ee.Message + "\r\n" + ee.StackTrace;
             }
         }
 
@@ -413,6 +421,7 @@ namespace OMR_scanner
             {
 
                 timer3.Enabled = false;
+                
 
             }
             else
@@ -447,6 +456,53 @@ namespace OMR_scanner
         {
             try
             {
+                timer1.Enabled = false;
+                timer3.Enabled = false;
+                plusvalY = 70;
+                y = 523;
+                a = 0;
+                num3 = 0;
+                n1 = 0;
+                b = 0;
+                ans2 = new int[400];
+                answerbox.Text = "";
+                log_.Text = "스캔 시작(Scanning started)";
+                string sDirPath = Application.StartupPath + "\\images";
+                FileInfo file = new FileInfo(sDirPath + "\\scanned.jpg");
+
+
+
+                if (!file.Exists)
+                {
+
+                }
+                else
+                {
+                    FileStream fs_ = file.OpenRead();
+                    fs_.Dispose();
+                    file.IsReadOnly = false;
+                    file.Delete();
+                 
+                }
+               
+              
+                FileInfo file_ = new FileInfo(sDirPath + "\\scanned_1.jpg");
+
+                if (!file_.Exists)
+                {
+
+                }
+                else
+                {
+                    FileStream fs__ = file_.OpenRead();
+                    fs__.Dispose();
+                    file_.IsReadOnly = false;
+                    file_.Delete();
+
+                }
+                timer3.Enabled = false;
+                mPictureBox.Image = null;
+               
                 WIA.CommonDialog dialog = new WIA.CommonDialog();
               Device scanner = dialog.ShowSelectDevice(WiaDeviceType.ScannerDeviceType, true, false);
                 if (!scanner.DeviceID.Equals(null))
@@ -455,52 +511,33 @@ namespace OMR_scanner
                     // TODO: Adjust scanner settings.
 
                     ImageFile scannedImage = (ImageFile)dialog.ShowTransfer(scannnerItem, WIA.FormatID.wiaFormatJPEG, false);
-                    string sDirPath;
-                    sDirPath = Application.StartupPath + "\\images";
+                   
+                   
                     DirectoryInfo di = new DirectoryInfo(sDirPath);
                     if (di.Exists == false)
                     {
                         di.Create();
                     }
+                    scannedImage.SaveFile(sDirPath + "\\scanned.jpg");
 
-                    FileInfo file = new FileInfo(sDirPath + "\\scanned.jpg");
-
-
-                    if (!file.Exists)
-                    {
-                        scannedImage.SaveFile(sDirPath + "\\scanned.jpg");
-                        file.IsReadOnly = false;
-                    }
-                    else
-                    {
-                        file.Delete();
-                        scannedImage.SaveFile(sDirPath + "\\scanned.jpg");
-                        file.IsReadOnly = false;
-                    }
-
-                    
-              
                     using (Image image = Image.FromFile(sDirPath + "\\scanned.jpg"))
                     {
                         using (Image newImage = new Bitmap(image, 2475, 3505))
                         {
                             newImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                            mPictureBox.Image = new Bitmap(newImage);
- 
+
+
                             newImage.Save(sDirPath + "\\scanned_1.jpg");
+                          
+                            mPictureBox.Image = new Bitmap(newImage);
+                            newImage.Dispose();
                             image.Dispose();
                         }
                     }
-                    mPictureBox.Image = Image.FromFile((sDirPath + "\\scanned_1.jpg"));
+   
 
-                    y = 523;
-                    a = 0;
-                    num3 = 0;
-                    n1 = 0;
-                    b = 0;
-                    ans2 = new int[400];
-                    answerbox.Text = "";
                     timer3.Enabled = true;
+                   
                 }
 
             }catch(Exception ee)
